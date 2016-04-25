@@ -17,8 +17,7 @@ public class Solution {
      * @param head: The head of linked list.
      * @return: The new head of reversed linked list.
      */
-    public ListNode reverse(ListNode head) {
-        // write your code here
+    public ListNode reverse(ListNode head) {           //recursion
         if(head == null || head.next == null){
             return head;
         }
@@ -27,4 +26,13 @@ public class Solution {
         head.next = null;
         return reverseNode;
     }
+    public ListNode reverse(ListNode head) {            //loop
+        ListNode prev = null;
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
+        }
+        return prev;
 }
